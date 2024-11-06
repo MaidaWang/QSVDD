@@ -56,7 +56,7 @@ while read requirement; do conda install -n myenv --yes $requirement; done < req
 ```
 
 
-## Running experiments
+## Running simulations
 
 We currently have implemented the MNIST ([http://yann.lecun.com/exdb/mnist/](http://yann.lecun.com/exdb/mnist/)) and 
 CIFAR-10 ([https://www.cs.toronto.edu/~kriz/cifar.html](https://www.cs.toronto.edu/~kriz/cifar.html)) datasets and 
@@ -77,7 +77,7 @@ mkdir log/mnist_test
 # change to source directory
 cd src
 
-# run experiment
+# run simulation
 python main.py mnist mnist_LeNet ../log/mnist_test ../data --objective one-class --lr 0.0001 --n_epochs 150 --lr_milestone 50 --batch_size 200 --weight_decay 0.5e-6 --pretrain True --ae_lr 0.0001 --ae_n_epochs 150 --ae_lr_milestone 50 --ae_batch_size 200 --ae_weight_decay 0.5e-3 --normal_class 1;
 ```
 This example trains a Quantum SVDD model where digit 3 (`--normal_class 3`) is considered to be the normal class. Autoencoder
@@ -96,26 +96,16 @@ mkdir log/cifar10_test
 # change to source directory
 cd src
 
-# run experiment
+# run simulation
 python main.py cifar10 cifar10_LeNet ../log/cifar10_test ../data --objective one-class --lr 0.0001 --n_epochs 150 --lr_milestone 50 --batch_size 200 --weight_decay 0.5e-6 --pretrain True --ae_lr 0.0001 --ae_n_epochs 350 --ae_lr_milestone 250 --ae_batch_size 200 --ae_weight_decay 0.5e-6 --normal_class 3;
 ```
-This example trains a Quantum SVDD model where cats (`--normal_class 3`) is considered to be the normal class. 
+This example trains a Quantum SVDD model where cats (`--normal_class 3`) are considered to be the normal class. 
 Autoencoder pretraining is used for parameter initialization.
 
-
-## Examples
-
-### MNIST
-Example of the 32 most normal (left) and 32 most anomalous (right) test set examples per class on MNIST according to 
-Quantum SVDD anomaly scores.
-
-![MNIST](imgs/mnist.png?raw=true "MNIST")
-
-### CIFAR-10
-Example of the 32 most normal (left) and 32 most anomalous (right) test set examples per class on CIFAR-10 according to 
-Quantum SVDD anomaly scores.
-
-![CIFAR-10](imgs/cifar10.png?raw=true "CIFAR-10")
+## Experiments
+We have already run QSVDD on several different quantum devices, including IBM, Zuchongzhi, and VQS. We also plan to implement this method on more chips in the future.
+Nevertheless, it is not possible to provide any specific codes for the hardware until such time as the relevant parties have given their approval.
+If any academic organization has hardware and would like to run the algorithm on their hardware, they can contact the authors.
 
 
 ## License
