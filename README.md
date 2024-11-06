@@ -15,14 +15,17 @@ If you would like to get in touch, please contact [maida.wang.24@ucl.ac.uk](mail
 
 
 ## Abstract
-> > Despite the great advances made by deep learning in many machine learning problems, there is a relative dearth of 
-> > deep learning approaches for anomaly detection. Those approaches which do exist involve networks trained to perform 
-> > a task other than anomaly detection, namely generative models or compression, which are in turn adapted for use in 
-> > anomaly detection; they are not trained on an anomaly detection based objective. In this paper we introduce a new 
-> > anomaly detection method—Deep Support Vector Data Description—, which is trained on an anomaly detection based
-> > objective. The adaptation to the deep regime necessitates that our neural network and training procedure satisfy 
-> > certain properties, which we demonstrate theoretically. We show the effectiveness of our method on MNIST and
-> > CIFAR-10 image benchmark datasets as well as on the detection of adversarial examples of GTSRB stop signs.
+Quantum computing has gained attention for its potential to address computational challenges. 
+Its integration with emerging computing paradigms has contributed to quantum machine learning development. 
+However, whether algorithms for real-world tasks can effectively operate on current quantum hardware, exhibiting quantum advantage, remains a critical question in quantum machine learning. 
+In this work, we propose Quantum Support Vector Data Description (QSVDD) for practical anomaly detection. 
+We introduce the concept of expressivity in our theoretical analysis, deriving a covering number bound to characterize the model's performance. 
+Simulation results indicate that QSVDD demonstrates favorable recognition capabilities compared to classical baselines, 
+achieving an average accuracy of over 90\% on benchmarks using ten qubits with significantly fewer trainable parameters. 
+Furthermore, we first develop an implementation pipeline for QSVDD and conduct experiments on quantum processors, 
+achieving an accuracy above 80\% with four qubits. 
+This work aims to advance the application of quantum machine learning in anomaly detection, 
+highlighting its feasibility in the noisy intermediate-scale quantum era.
 
 
 ## Installation
@@ -46,7 +49,7 @@ pip install -r requirements.txt
 
 ### `conda`
 ```
-cd <path-to-Deep-SVDD-directory>
+cd <path-to-Quantum-SVDD-directory>
 conda create --name myenv
 source activate myenv
 while read requirement; do conda install -n myenv --yes $requirement; done < requirements.txt
@@ -77,7 +80,7 @@ cd src
 # run experiment
 python main.py mnist mnist_LeNet ../log/mnist_test ../data --objective one-class --lr 0.0001 --n_epochs 150 --lr_milestone 50 --batch_size 200 --weight_decay 0.5e-6 --pretrain True --ae_lr 0.0001 --ae_n_epochs 150 --ae_lr_milestone 50 --ae_batch_size 200 --ae_weight_decay 0.5e-3 --normal_class 1;
 ```
-This example trains a One-Class Deep SVDD model where digit 3 (`--normal_class 3`) is considered to be the normal class. Autoencoder
+This example trains a Quantum SVDD model where digit 3 (`--normal_class 3`) is considered to be the normal class. Autoencoder
 pretraining is used for parameter initialization.
 
 ### CIFAR-10 example
@@ -96,7 +99,7 @@ cd src
 # run experiment
 python main.py cifar10 cifar10_LeNet ../log/cifar10_test ../data --objective one-class --lr 0.0001 --n_epochs 150 --lr_milestone 50 --batch_size 200 --weight_decay 0.5e-6 --pretrain True --ae_lr 0.0001 --ae_n_epochs 350 --ae_lr_milestone 250 --ae_batch_size 200 --ae_weight_decay 0.5e-6 --normal_class 3;
 ```
-This example trains a One-Class Deep SVDD model where cats (`--normal_class 3`) is considered to be the normal class. 
+This example trains a Quantum SVDD model where cats (`--normal_class 3`) is considered to be the normal class. 
 Autoencoder pretraining is used for parameter initialization.
 
 
@@ -116,4 +119,4 @@ Quantum SVDD anomaly scores.
 
 
 ## License
-MIT
+UCL
