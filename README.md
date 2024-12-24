@@ -8,7 +8,7 @@ You find a PDF of the A Practical Quantum Anomaly Detection Method with Enhanced
 
 If you use our work, please also cite the paper:
 ```
-
+https://arxiv.org/abs/2412.16867
 ```
 
 If you would like to get in touch, please contact [maida.wang.24@ucl.ac.uk](mailto:maida.wang.24@ucl.ac.uk).
